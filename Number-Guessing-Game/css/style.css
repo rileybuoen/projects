@@ -1,0 +1,14 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.result {
+    padding: 10px;
+}
+#result {
+    width: 100%;
+    color: white;
+}
