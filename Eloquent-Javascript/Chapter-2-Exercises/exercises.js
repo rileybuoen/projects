@@ -8,7 +8,6 @@ June 5, 2021
 // Looping a Triangle
 
 let triangle = "#";
-
 while (triangle.length < 8) {
     console.log(triangle)
     triangle += "#";
@@ -31,18 +30,15 @@ for (let num = 0; num < 101; num++) {
 
 // Chessboard
 
-const white = " ";
-const black = "#";
 let size = 8;
-
 for (let i = 0; i < size; i++) {
     if (i % 2 === 0) {
         let row = "";
         for (let j = 0; j < size; j++) {
             if (j % 2 === 0) {
-                row += white;
+                row += " ";
             } else {
-                row += black;
+                row += "#";
             }
         }
         console.log(row);
@@ -50,9 +46,9 @@ for (let i = 0; i < size; i++) {
         let row = "";
         for (let k = 0; k < size; k++) {
             if (k % 2 === 0) {
-                row += black;
+                row += "#";
             } else {
-                row += white;
+                row += " ";
             }
         }
         console.log(row);
