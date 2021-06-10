@@ -2,11 +2,12 @@
 
 class Game {
     constructor() {
-        this.guess = 0;
+        this.guess = "";
         this.num = Math.floor(Math.random() * 100);
     }
     getGuess() {
         this.guess = document.getElementById("inputBox").value;
+        return this.guess;
     }
     getHint() {
         if (this.guess > this.num) {
@@ -30,5 +31,7 @@ class Game {
 
 let game = new Game();
 
+console.log(game.getGuess());
+
 const button = document.getElementById("submitButton");
-button.addEventListener("click", game.guess);
+button.addEventListener("click", game.getGuess);
