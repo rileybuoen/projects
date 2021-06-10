@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Number Guessing Game</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <!-- style -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="main">
-        <!--Introduction and instruction-->
-        <h1>Number Guessing Game</h1>
-        <p>We have selected a random number between 1 and 100. See if you<br> can guess it in 10 turns or fewer. We'll tell you if your guess was too<br> high or too low.</p>
         <label for="inputBox">Enter a guess: </label>
         <input id="inputBox" name="inputBox" type="text" maxlength="3" required>
         <button id="submitButton" type="button">Submit Guess</button>
-        <!--The results-->
-        <div class="results">
-            <label id="guesses"></label><br>
-            <label id="result"></label><br>
-            <label id="hint"></label>
-        </div>
     </div>
     <script src="./js/main.js"></script>
 </body>
