@@ -4,19 +4,20 @@ class Game {
     constructor() {
         // the guess
         this.guess = 0;
-
         // the random number
         this.num = Math.floor(Math.random() * 100);
         console.log(this.num);
-
         // turn counter
         this.counter = 10;
-
         // game state
-        this.gameOver = false;
+        this.gameState = false;
+    }
+    getState() {
+        // returns the current game state
+        return this.gameState;
     }
     getGuess() {
-        if (this.gameOver === false) {
+        if (game.getState() === false) {
             // gets the input and converts it from a string to and integer
             this.guess = parseInt(document.getElementById("inputBox").value, 10);
             console.log(this.guess);
@@ -52,10 +53,10 @@ class Game {
         // checks if guess is equal to the random number
         if (this.counter > 0 && guess === this.num) {
             console.log("You Win!");
-            this.gameOver = true;
+            this.gameState = true;
         } else {
             console.log("Out of turns!");
-            this.gameOver = true;
+            this.gameState = true;
         }
     }
 }
