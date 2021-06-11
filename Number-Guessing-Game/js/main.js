@@ -33,15 +33,21 @@ class Game {
         if (this.counter > 1 && guess > this.num) {
             this.counter--;
 
+            document.getElementById("hint").innerHTML = "Guess too high!";
+            document.getElementById("counter").innerHTML = this.getTurnCount();
             console.log("Guess too high!");
             console.log(this.getTurnCount());
 
         } else if (this.counter > 1 && guess < this.num) {
             this.counter--;
 
+            document.getElementById("hint").innerHTML = "Guess too Low!";
+            document.getElementById("counter").innerHTML = this.getTurnCount();
             console.log("Guess too low!");
             console.log(this.getTurnCount());
 
+        } else if (isNaN(guess)) {
+            
         } else {
             game.guessCheck(guess);
         } 
