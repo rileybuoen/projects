@@ -1,33 +1,49 @@
 // May 23, 2021
 
+const guesses = [];
+
 class Game {
     constructor() {
-        // the guess
         this.guess = 0;
-        // the random number
         this.num = Math.floor(Math.random() * 100);
         console.log(this.num);
-        // turn counter
         this.counter = 10;
-        // game state
-        this.gameState = false;
+        this.gameOver = false;
     }
     getState() {
         // returns the current game state
-        return this.gameState;
+        return this.gameOver;
     }
-    getGuess() {
-        if (game.getState() === false) {
-            // gets the input and converts it from a string to and integer
-            this.guess = parseInt(document.getElementById("inputBox").value, 10);
-            console.log(this.guess);
-
-            // calls getHint
+    // getGuess() {
+    //     return parseInt(document.getElementById("inputBox").value, 10);
+    // }
+    guessCheck() {
+        this.guess = parseInt(document.getElementById("inputBox").value, 10);
+        if (game.getState() === false && !guesses.includes(this.guess)) {
             game.getHint(this.guess);
+            guesses.push(this.guess);
+            document.getElementById("guesses").innerHTML = guesses;
+        } else if (guesses.includes(this.guess)) {
+            console.log("Already guessed");
         } else {
-            console.log("The Game is Over")
+            console.log("Game Over!");
         }
     }
+    // getGuess() {
+    //     if (game.getState() === false && !guesses.includes(this.guess)) {
+
+    //         // gets the input and converts it from a string to and integer
+    //         this.guess = parseInt(document.getElementById("inputBox").value, 10);
+    //         console.log(this.guess);
+
+    //         // calls getHint
+    //         game.getHint(this.guess);
+    //     } else if (guesses.includes(this.guess)) {
+    //         console.log("Already guessed!")
+    //     } else {
+    //         console.log("The Game is Over")
+    //     }
+    // }
     getHint(guess) {
         // compares the guess to the random number
         if (this.counter > 1 && guess > this.num) {
@@ -47,28 +63,27 @@ class Game {
             console.log(this.getTurnCount());
 
         } else if (isNaN(guess)) {
-            
+            console.log("Not a number");
         } else {
-            game.guessCheck(guess);
+            game.winCheck(guess);
         } 
     }
     getTurnCount() {
         return "Turns left: " + this.counter.toString();
     }
-    guessCheck(guess) {
+    winCheck(guess) {
         // checks if guess is equal to the random number
         if (this.counter > 0 && guess === this.num) {
             console.log("You Win!");
-            this.gameState = true;
+            this.gameOver = true;
         } else {
             console.log("Out of turns!");
-            this.gameState = true;
+            this.gameOver = true;
         }
     }
 }
 
 let game = new Game();
 
-// button
 const button = document.getElementById("submitButton");
-button.addEventListener("click", game.getGuess);
+button.addEventListener("click", game.guessCheck);
